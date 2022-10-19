@@ -4,7 +4,6 @@ defmodule Duper.Gatherer do
   @me Gatherer
 
   def start_link(worker_count) do
-    Process.send_after(self(), :kickoff, 0)
     GenServer.start_link(__MODULE__, worker_count, name: @me)
   end
 
@@ -17,6 +16,7 @@ defmodule Duper.Gatherer do
   end
 
   def init(worker_count) do
+    Process.send_after(self(), :kickoff, 0)
     {:ok, worker_count}
   end
 
