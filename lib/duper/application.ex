@@ -10,7 +10,8 @@ defmodule Duper.Application do
     children = [
       Duper.Results,
       {Dupler.PathFinder, "."},
-      Duper.WorkerSupervisor
+      Duper.WorkerSupervisor,
+      Duper.Gatherer
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
